@@ -16,6 +16,9 @@ print c("hello").red.on_white.blink.underline.dark
 
 # termcolor
 print colored("hello", "red", "on_white", ["blink", "underline", "dark"])
+
+# == string concat ==
+c("term").blue.dark + c("color").yellow + c("2").cyan.on_white
 ```
 
 

@@ -1,7 +1,7 @@
 from termcolor import colored
 
 class _C(object):
-    def __init__(self, string, color=None, on_color=None, attrs=[]):
+    def __init__(self, string, color=None, on_color=None, attrs=None):
         self.string = string
         self.color = color
         self.on_color = on_color
@@ -16,7 +16,10 @@ class _C(object):
             self.on_color = name
         elif name in ['bold', 'dark', 'underline',
                       'blink', 'reverse', 'concealed']:
-            self.attrs.append(name)
+            if not self.attrs:
+                self.attrs = []
+            if name not in self.attrs:
+                self.attrs.append(name)
         else:
             raise AttributeError("no such attr -> " + name)
         return self
@@ -24,4 +27,10 @@ class _C(object):
     def __str__(self):
         return colored(self.string, color=self.color,
                        on_color=self.on_color, attrs=self.attrs)
+
+    def __add__(self, other):
+        return self.__str__() + other
+
+    def __radd__(self, other):
+        return other + self.__str__()
 c = _C
