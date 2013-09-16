@@ -1,6 +1,6 @@
 from termcolor import colored
 
-class C(object):
+class _C(object):
     def __init__(self, string, color=None, on_color=None, attrs=[]):
         self.string = string
         self.color = color
@@ -24,4 +24,4 @@ class C(object):
     def __str__(self):
         return colored(self.string, color=self.color,
                        on_color=self.on_color, attrs=self.attrs)
-c = C
+c = _C
