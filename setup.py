@@ -9,7 +9,7 @@ def readme():
 if __name__ == '__main__':
     setup(
         name = 'termcolor2',
-        version = '0.0.1',
+        version = '0.0.2',
         description = 'simple termcolor wrapper',
         long_description = readme(),
         author = "Yan Wenjun",
